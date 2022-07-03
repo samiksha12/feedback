@@ -54,9 +54,10 @@ const DataContextProvider = ({ children }) => {
   };
 
   React.useEffect(() => {
-    getData(GET_DATA).then((data) => {
-      setAllData([...data]);
-      const result = data.filter((item) => {
+    getData().then((data) => {
+      const response = data.dataTable;
+      setAllData([...response]);
+      const result = response.filter((item) => {
         if (item.userId === user?.id) {
           return item;
         }
