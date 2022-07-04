@@ -1,6 +1,6 @@
 import React from "react";
-import { getData, getUserData } from "../../api";
-import { GET_USER, GET_DATA } from "../../api/url";
+import { getUserData } from "../../api";
+import { GET_USER } from "../../api/url";
 
 export const UserContext = React.createContext({
   allUser: null,
@@ -15,10 +15,9 @@ const UserContextProvider = ({ children }) => {
   const [token, setToken] = React.useState(null);
   const [allUser, setAllUser] = React.useState(null);
   const loginHandler = (username, password) => {
-    getUserData().then((data) => {
-      const response = data.userTable;
-      setAllUser(response);
-      const result = response.filter((item) => {
+    getUserData(GET_USER).then((data) => {
+      setAllUser(data);
+      const result = data.filter((item) => {
         if (item.username === username && item.password === password) {
           return item;
         }
@@ -40,10 +39,9 @@ const UserContextProvider = ({ children }) => {
     const tokenLS = localStorage.getItem("token");
     if (!token && tokenLS) {
       setToken(tokenLS);
-      getUserData().then((data) => {
-        const response = data.userTable;
-        setAllUser(response);
-        const userResult = response.filter((item) => {
+      getUserData(GET_USER).then((data) => {
+        setAllUser(data);
+        const userResult = data.filter((item) => {
           if (item.token === tokenLS) {
             return item;
           }

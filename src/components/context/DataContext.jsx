@@ -25,13 +25,13 @@ const DataContextProvider = ({ children }) => {
     const newValue = { id, userId, text, rating };
     allData.push(newValue);
     setAllData([...allData]);
-    postData({dataTable:newValue}).then((data) => {
+    postData(POST_DATA,newValue).then((data) => {
       alert("You submited Feedback successfully");
     });
   };
   const editData = (editdata) => {
     const { id } = editdata;
-    putData(id, editdata).then((data) => {
+    putData(PUT_DATA,id, editdata).then((data) => {
       alert("You edited Feedback successfully");
       setAllData(allData.map((item) => 
         item.id === id ?{ ...item, ...data,editData} :item
@@ -54,10 +54,9 @@ const DataContextProvider = ({ children }) => {
   };
 
   React.useEffect(() => {
-    getData().then((data) => {
-      const response = data.dataTable;
-      setAllData([...response]);
-      const result = response.filter((item) => {
+    getData(GET_DATA).then((data) => {
+      setAllData(data);
+      const result = data.filter((item) => {
         if (item.userId === user?.id) {
           return item;
         }

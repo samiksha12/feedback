@@ -1,17 +1,17 @@
-import { BACKEND_DOMAIN_USER, BACKEND_DOMAIN_DATA } from "../config";
-export const getUserData = async () => {
-  const resp = await fetch(`${BACKEND_DOMAIN_USER}`);
+import { BACKEND_DOMAIN } from "../config";
+export const getUserData = async (url) => {
+  const resp = await fetch(`${BACKEND_DOMAIN}${url}`);
   const data = await resp.json();
   return data;
 };
 
-export const getData = async () => {
-  const resp = await fetch(`${BACKEND_DOMAIN_DATA}`);
+export const getData = async (url) => {
+  const resp = await fetch(`${BACKEND_DOMAIN}${url}`);
   const data = await resp.json();
   return data;
 };
-export const postData = async (data) => {
-  const rep = await fetch(`${BACKEND_DOMAIN_DATA}`, {
+export const postData = async (url,data) => {
+  const rep = await fetch(`${BACKEND_DOMAIN}${url}`, {
     mode: "cors",
     method: "POST",
     body: JSON.stringify(data),
@@ -21,12 +21,12 @@ export const postData = async (data) => {
   });
 };
 export const deleteData = async (url, id) => {
-  const rep = await fetch(`${BACKEND_DOMAIN_DATA}${url}/${id}`, {
+  const rep = await fetch(`${BACKEND_DOMAIN}${url}/${id}`, {
     method: "DELETE",
   });
 };
 export const putData = async (url, id, data) => {
-  const rep = await fetch(`${BACKEND_DOMAIN_DATA}${url}/${id}`, {
+  const rep = await fetch(`${BACKEND_DOMAIN}${url}/${id}`, {
     method: "PUT",
     body: JSON.stringify(data),
     headers: {
