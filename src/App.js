@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="holder">
-      <Header text="Feedback React App" headerClass="header-main">
+      {token &&<Header text="Feedback React App" headerClass="header-main">
       <div className="p-2 mx-2">
           <NavLink to="/">Home</NavLink>
         </div>
@@ -30,7 +30,7 @@ function App() {
         <div className="p-2 mx-2">
           <NavLink to="feedbackdata">Feedbacks</NavLink>
         </div>
-      </Header>
+      </Header>}
       <div className="body">
       <Routes>
         {!token ? (
@@ -46,7 +46,7 @@ function App() {
         <Route path="*" element={<Login />} />
       </Routes>
       </div>
-      <Footer footerClass="footer-main p-3" text="Feedback App Footer"/>
+      {token &&<Footer footerClass="footer-main p-3" text="Feedback App Footer"/>}
     </div>
   );
 }

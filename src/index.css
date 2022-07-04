@@ -31,7 +31,10 @@ footer{
   position: relative;
   left: 30%;
 }
-
+.login-container{
+  margin:0 auto;
+  width:80%;
+}
 .login-message {
   color: red;
 }

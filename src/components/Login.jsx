@@ -34,8 +34,8 @@ function Login() {
   };
 
   return (
-    <div>
-      <div className="container my-5 card py-5">
+    <div className="container p-5">
+      <div className="login-container my-5 card p-5">
         <h3> User Login</h3>
         <Input
           label="Username"
