@@ -1,3 +1,3 @@
-export const BACKEND_DOMAIN_USER = 'https://samiksha12.github.io/json-server/user.json';
-export const BACKEND_DOMAIN_DATA ='https://samiksha12.github.io/json-server/data.json';
-export const FRONTEND_DOMAIN = 'http://localhost:3001';
+export const BACKEND_DOMAIN_USER = 'https://json-api-navy.vercel.app/user.json';
+export const BACKEND_DOMAIN_DATA ='https://json-api-navy.vercel.app/data.json';
+export const FRONTEND_DOMAIN = 'https://feedback-beryl.vercel.app';
