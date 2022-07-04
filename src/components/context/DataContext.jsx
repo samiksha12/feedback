@@ -25,13 +25,13 @@ const DataContextProvider = ({ children }) => {
     const newValue = { id, userId, text, rating };
     allData.push(newValue);
     setAllData([...allData]);
-    postData(POST_DATA, newValue).then((data) => {
+    postData({dataTable:newValue}).then((data) => {
       alert("You submited Feedback successfully");
     });
   };
   const editData = (editdata) => {
     const { id } = editdata;
-    putData(PUT_DATA, id, editdata).then((data) => {
+    putData(id, editdata).then((data) => {
       alert("You edited Feedback successfully");
       setAllData(allData.map((item) => 
         item.id === id ?{ ...item, ...data,editData} :item

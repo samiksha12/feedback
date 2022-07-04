@@ -1,5 +1,5 @@
 import { BACKEND_DOMAIN_USER,BACKEND_DOMAIN_DATA } from "../config";
-export const getUserData = async (url) => {
+export const getUserData = async () => {
   const resp = await fetch(`${BACKEND_DOMAIN_USER}`);
   const data = await resp.json();
   return data;
@@ -10,8 +10,8 @@ export const getData = async () => {
   const data = await resp.json();
   return data;
 };
-export const postData = async(url,data)=>{
-  const rep = await fetch(`${BACKEND_DOMAIN_DATA}${url}`,{
+export const postData = async(data)=>{
+  const rep = await fetch(`${BACKEND_DOMAIN_DATA}`,{
     method: "POST",
     body: JSON.stringify(data),
     headers: {

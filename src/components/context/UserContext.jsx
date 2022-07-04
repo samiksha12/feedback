@@ -15,8 +15,7 @@ const UserContextProvider = ({ children }) => {
   const [token, setToken] = React.useState(null);
   const [allUser, setAllUser] = React.useState(null);
   const loginHandler = (username, password) => {
-    getUserData(GET_USER).then((data) => {
-      console.log(data.userTable);
+    getUserData().then((data) => {
       const response = data.userTable;
       setAllUser(response);
       const result = response.filter((item) => {
@@ -41,7 +40,7 @@ const UserContextProvider = ({ children }) => {
     const tokenLS = localStorage.getItem("token");
     if (!token && tokenLS) {
       setToken(tokenLS);
-      getUserData(GET_USER).then((data) => {
+      getUserData().then((data) => {
         const response = data.userTable;
         setAllUser(response);
         const userResult = response.filter((item) => {
