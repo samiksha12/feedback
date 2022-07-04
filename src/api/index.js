@@ -13,7 +13,6 @@ export const getData = async () => {
 export const postData = async (data) => {
   const rep = await fetch(`${BACKEND_DOMAIN_DATA}`, {
     mode: "cors",
-    credentials: "include",
     method: "POST",
     body: JSON.stringify(data),
     headers: {
