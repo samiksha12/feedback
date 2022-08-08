@@ -52,7 +52,7 @@ const DataContextProvider = ({ children }) => {
   const editFeedbackId = (editItem) => {
     setEdititem(editItem);
   };
-
+  
   React.useEffect(() => {
     getData(GET_DATA).then((data) => {
       setAllData(data);
@@ -63,7 +63,7 @@ const DataContextProvider = ({ children }) => {
       });
       setYourData([...result]);
     });
-  }, []);
+  }, [user]);
 
   return (
     <DataContext.Provider
