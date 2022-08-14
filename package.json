@@ -1,7 +1,6 @@
 {
   "name": "feedback",
   "version": "0.1.0",
-  "homepage": "https://samiksha12.github.io/feedback",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
