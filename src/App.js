@@ -10,6 +10,7 @@ import { useContext } from "react";
 import FeedbackForm from "./components/FeedbackForm";
 import FeedbackData from "./components/FeedbackData";
 import Footer from "./components/Footer";
+import PageNotFound from "./components/404";
 // import FeedbackUserData from "./components/FeedbackUserData";
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
             <Route path="/contact-us" element={<ContactUs />}></Route>
           </>
         )}
-        <Route path="*" element={<Login />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       </div>
       {token &&<Footer footerClass="footer-main p-3" text="Feedback App Footer"/>}
